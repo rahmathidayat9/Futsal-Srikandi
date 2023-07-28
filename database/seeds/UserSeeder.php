@@ -17,18 +17,21 @@ class UserSeeder extends Seeder
                 'kode_user' => '1',
                 'nama' => 'Budi Budiman',
                 'telepon' => '081122334455',
+                'email' => 'budi@mail.com'
             ],
 
             [
                 'kode_user' => '2',
                 'nama' => 'Caca Macaca',
                 'telepon' => '082233445566',
+                'email' => 'caca@mail.com'
             ],
 
             [
                 'kode_user' => '3',
                 'nama' => 'Andi Surandi',
                 'telepon' => '083344556677',
+                'email' => 'andi@mail.com'
             ]
 
         ]);

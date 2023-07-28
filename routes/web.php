@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('home');
 // });
 
-Route::get('test',function () {
+Route::get('test', function () {
     return view('test');
 });
 
@@ -28,16 +28,16 @@ Route::get('/login', function () {
 Route::get('/logout', 'AuthController@logout');
 
 
-Route::get('schedule', 'ScheduleCon@index' );
-Route::get('schedule/getdata', 'ScheduleCon@getDataTransaksi' );
+Route::get('schedule', 'ScheduleCon@index');
+Route::get('schedule/getdata', 'ScheduleCon@getDataTransaksi');
 
 
-Route::get('/login','AuthController@getLogin');
-Route::post('/login','AuthController@postLogin')->name('login');
+Route::get('/login', 'AuthController@getLogin');
+Route::post('/login', 'AuthController@postLogin')->name('login');
 // Route::get('/home',function() {
 //     return view('tambahsewa');
 // })->name('home');
-Route::get('/home','DashboardController@index')->name('home');
+Route::get('/home', 'DashboardController@index')->name('home');
 
 Route::get('/tambahsewa', 'TambahSewaControll@index');
 Route::post('/tambahsewa/input', 'TransaksiController@store');
@@ -50,8 +50,11 @@ Route::get('/rekap/excel/{dari}/{ke}', 'RekapControll@eksporExcel')->name('excel
 Route::get('/rekap/getDataRekap/{dari}/{ke}', 'RekapControll@getDataRekapBulanan');
 
 Route::get('/daftarpenyewa', 'TransaksiController@index');
-Route::delete('/daftarpenyewa/{transaksi}','TransaksiController@destroy');
+Route::delete('/daftarpenyewa/{transaksi}', 'TransaksiController@destroy');
 // Route::get('/daftarpenyewa/{transaksi}/edit','TransaksiController@edit');
-Route::put('/daftarpenyewa/{transaksi}','TransaksiController@update');
+Route::put('/daftarpenyewa/{transaksi}', 'TransaksiController@update');
 
 Route::get('/', 'LapanganController@index');
+Route::get('/book/{code}/{tanggal}', 'TransaksiController@directBookForm');
+Route::get('/thank-you', 'TransaksiController@thankYou');
+Route::post('/book', 'TransaksiController@directBook');

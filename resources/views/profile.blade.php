@@ -9,7 +9,7 @@
     <script type="text/javascript" src="js/vue/vue.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Popper JS -->
@@ -38,7 +38,6 @@
         #allData {
             display: none;
         }
-
     </style>
 </head>
 
@@ -139,43 +138,42 @@
         <p>Lokasi Futsal Srikandi tersebar pada beberapa lokasi </p>
         <div class="container-map">
             <?php
-			$dump = json_encode($dump, true);
-			echo '<div id="data">' . $dump . '</div>';
-
-			$lapangan = json_encode($lapangan, true);
-			echo '<div id="allData">' . $lapangan . '</div>';
-			?>
+            $dump = json_encode($dump, true);
+            echo '<div id="data">' . $dump . '</div>';
+            
+            $lapangan = json_encode($lapangan, true);
+            echo '<div id="allData">' . $lapangan . '</div>';
+            ?>
             <div id="map"></div>
         </div>
     </section>
 
     <section class="newsletter" id="newsletter">
-                <h3 class="header-text" style="color: white;">SCHEDULE</h3>
-                    <input id="date-picker" width="270" value="<?php date_default_timezone_set("Asia/Jakarta");
-                                                        echo date("Y-m-d"); ?>" onchange="getJSON()" />
-                <div class="content table-responsive table-full-width" style="margin-top: 50px;">
-                    <div class="jadwal">
-                        <div class="baris" v-for="lapangan in jadwal">
-                            <div class="lapangan" style="color: white; width: 170px;">
-                                <h4>Lapangan @{{ lapangan.lapangan }}</h4>
-                            </div>
-                            <a v-for="jam in lapangan.urutan" class="cards credentialing tombol-pilihjadwal" style="pointer-events: none; cursor: not-allowed;"
-                                onclick="getDataLapangan(this.id)">
-                                <div class="overlay"></div>
-                                <div class="jam">@{{ jam.nomor }}</div>
-                            </a>
-                        </div>
+        <h3 class="header-text" style="color: white;">SCHEDULE</h3>
+        <input id="date-picker" width="270" value="<?php date_default_timezone_set('Asia/Jakarta');
+        echo date('Y-m-d'); ?>" onchange="getJSON()" />
+        <div class="content table-responsive table-full-width" style="margin-top: 50px;">
+            <div class="jadwal">
+                <div class="baris" v-for="lapangan in jadwal">
+                    <div class="lapangan" style="color: white; width: 170px;">
+                        <h4>Lapangan @{{ lapangan.lapangan }}</h4>
                     </div>
+                    <a v-for="jam in lapangan.urutan" class="cards credentialing tombol-pilihjadwal">
+                        <div class="overlay book"></div>
+                        <div class="jam">@{{ jam.nomor }}</div>
+                    </a>
                 </div>
+            </div>
+        </div>
 
-				<div class="keterangan">
-					<div class="sudah_booking"></div>
-					<h4 class="dif" style="color: white;">Sudah Booking</h4>			
-				</div>
-				<div class="keterangan">
-					<div class="belum_booking"></div>
-					<h4 style="color: white;">Belum Booking</h4>			
-				</div>
+        <div class="keterangan">
+            <div class="sudah_booking"></div>
+            <h4 class="dif" style="color: white;">Sudah Booking</h4>
+        </div>
+        <div class="keterangan">
+            <div class="belum_booking"></div>
+            <h4 style="color: white;">Belum Booking</h4>
+        </div>
     </section>
 
     <section class="contact" id="contact">
@@ -204,15 +202,14 @@
     </footer>
 
     <script type="text/javascript">
-        window.onload = function () {
+        window.onload = function() {
             buatId();
         }
-
     </script>
     <script src="/js/profile.js"></script>
     <script src="https://kit.fontawesome.com/3f4aa1c6f5.js" crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdg3NKQlbc9sVcuo8aRzLZQLtPoLrPZsw&callback=loadMap"
-        async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdg3NKQlbc9sVcuo8aRzLZQLtPoLrPZsw&callback=loadMap" async
+        defer></script>
     <!--   Core JS Files   -->
     <script src="js/jquery.3.2.1.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
@@ -239,7 +236,7 @@
         type="text/css" />
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#date-picker').datepicker({
 
                 uiLibrary: 'bootstrap',
@@ -247,7 +244,6 @@
 
             });
         });
-
     </script>
 
 
@@ -256,13 +252,22 @@
     <script src="js/tambahsewa-back-script.js"></script>
 
     <script>
-        jQuery(document).ready(function () {
+        $('.tombol-pilihjadwal').click(function(e) {
+            e.preventDefault();
+
+            var id = $(this).attr('id');
+            var time = $('#date-picker').val();
+
+            window.location.href = `/book/${id}/${time}`
+        });
+
+        jQuery(document).ready(function() {
             $('.counter').counterUp({
                 delay: 50,
                 time: 1000
             });
-        });
 
+        });
     </script>
 </body>
 

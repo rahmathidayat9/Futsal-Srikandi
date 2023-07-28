@@ -21,6 +21,9 @@ class TransaksiSeeder extends Seeder
                 'kode_jadwal' => 'A13',
                 'diskon' => '10000',
                 'tanggal' => '2020-04-16',
+                'email' => 'a@mail.com',
+                'nama_user' => 'a',
+                'phone' => '082736345'
             ],
 
             [
@@ -31,6 +34,9 @@ class TransaksiSeeder extends Seeder
                 'kode_jadwal' => 'A13',
                 'diskon' => '10000',
                 'tanggal' => '2020-05-03',
+                'email' => 'a@mail.com',
+                'nama_user' => 'a',
+                'phone' => '082736345'
             ],
 
             [
@@ -41,6 +47,9 @@ class TransaksiSeeder extends Seeder
                 'kode_jadwal' => 'T13',
                 'diskon' => '5000',
                 'tanggal' => '2020-05-03',
+                'email' => 'a@mail.com',
+                'nama_user' => 'a',
+                'phone' => '082736345'
             ],
 
             [
@@ -51,6 +60,9 @@ class TransaksiSeeder extends Seeder
                 'kode_jadwal' => 'A07',
                 'diskon' => '1000',
                 'tanggal' => '2020-05-04',
+                'email' => 'a@mail.com',
+                'nama_user' => 'a',
+                'phone' => '082736345'
             ],
 
             [
@@ -61,6 +73,9 @@ class TransaksiSeeder extends Seeder
                 'kode_jadwal' => 'A22',
                 'diskon' => '3000',
                 'tanggal' => '2020-05-04',
+                'email' => 'a@mail.com',
+                'nama_user' => 'a',
+                'phone' => '082736345'
             ],
 
             [
@@ -71,6 +86,9 @@ class TransaksiSeeder extends Seeder
                 'kode_jadwal' => 'T15',
                 'diskon' => '50000',
                 'tanggal' => '2020-05-04',
+                'email' => 'a@mail.com',
+                'nama_user' => 'a',
+                'phone' => '082736345'
             ]
         ]);
     }

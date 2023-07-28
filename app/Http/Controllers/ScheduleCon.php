@@ -18,5 +18,3 @@ class ScheduleCon extends Controller{
       exit;
   }
 }
-
-?>
