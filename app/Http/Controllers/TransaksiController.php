@@ -70,7 +70,7 @@ class TransaksiController extends Controller
 
                     $transaction = DB::table('transaksi')->where('kode_transaksi', $id)->first();
 
-                    Mail::to($request->email_user)->send(new TransactionMail($transaction));
+                    // Mail::to($request->email_user)->send(new TransactionMail($transaction));
 
                     request()->session()->put('transaction', $id);
                 } else {
@@ -97,7 +97,7 @@ class TransaksiController extends Controller
 
                     $transaction = DB::table('transaksi')->where('kode_transaksi', $id)->first();
 
-                    Mail::to($request->email)->send(new TransactionMail($transaction));
+                    // Mail::to($request->email)->send(new TransactionMail($transaction));
 
                     request()->session()->put('transaction', $id);
                 }
